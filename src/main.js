@@ -18,7 +18,7 @@ async function procesarEncuestas(rutaArchivo) {
     let respuestasPorcentaje = calcularPorcentaje(conteoRespuestas, encuestasValidas.length);
     const resumen = formatearResultados(datos, encuestasValidas, edadPromedio, respuestasPorcentaje)
     await fs.promises.writeFile(
-        "src/resultados.json",
+        "output/resultados.json",
         JSON.stringify(resumen, null, 2),
         "utf-8"
       );
@@ -28,4 +28,4 @@ async function procesarEncuestas(rutaArchivo) {
   }
 }
 
-procesarEncuestas("datos.json");
+procesarEncuestas("data/datos.json");
